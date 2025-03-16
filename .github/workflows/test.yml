@@ -1,0 +1,11 @@
+name: Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Test
+        run:  Get-Process -PID $pid
