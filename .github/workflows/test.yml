@@ -8,4 +8,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Test
-        run:  Get-Process -PID $pid
+        run: |
+          Get-Process -PID $pid
+          $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+          $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
